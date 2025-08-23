@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "lint": "eslint .",
+    "test": "jest --runInBand",
+    "test:unit": "jest tests/unit",
+    "test:int": "jest tests/integration",
+    "seed:users": "node scripts/seedUsers.js",
+    "seed:specialties": "node scripts/seedSpecialties.js",
+    "seed:patients": "node scripts/seedPatients.js",
+    "perf:k6:smoke": "k6 run perf/k6/smoke-login.js",
+    "perf:k6:load": "k6 run perf/k6/load-crud-patients.js",
+    "perf:k6:soak": "k6 run perf/k6/soak-appointments.js",
+    "perf:artillery:login": "artillery run perf/artillery/login.yml",
+    "perf:artillery:patients": "artillery run perf/artillery/patients-crud.yml",
+    "perf:autocannon": "node perf/autocannon/burst-auth.mjs"
+  }
+}
