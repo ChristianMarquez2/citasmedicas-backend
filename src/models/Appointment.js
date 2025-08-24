@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const appointmentSchema = new mongoose.Schema(
   {
     codigo: { type: Number, required: true },       // int(11) ~ Number
-    descripcion: { type: Number, required: true },  // int(11) ~ Number (sí, pediste número)
+    descripcion: { type: String, required: true },  // int(11) ~ Number (sí, pediste número)
     id_paciente: { type: mongoose.Schema.Types.ObjectId, ref: "pacientes", required: true },
     id_especialidad: { type: mongoose.Schema.Types.ObjectId, ref: "especialidades", required: true },
     fecha: { type: Date, required: true },

@@ -11,6 +11,9 @@ const envSchema = z.object({
   RATE_WINDOW_MS: z.string().optional().default("60000"),
   RATE_MAX: z.string().optional().default("100"),
   LOG_FORMAT: z.string().optional().default("dev"),
+  
 });
 
 export const env = envSchema.parse(process.env);
+
+export default env;
