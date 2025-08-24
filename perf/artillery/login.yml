@@ -1,0 +1,20 @@
+config:
+  target: "http://localhost:8080/api/v1"
+  phases:
+    - duration: 30
+      arrivalRate: 2   # 2 usuarios por segundo
+  defaults:
+    headers:
+      Content-Type: "application/json"
+
+scenarios:
+  - name: "Login Users"
+    flow:
+      - post:
+          url: "/auth/login"
+          json:
+            email: "juan@example.com"
+            password: "123456"
+          capture:
+            - json: "$.token"
+              as: "token"

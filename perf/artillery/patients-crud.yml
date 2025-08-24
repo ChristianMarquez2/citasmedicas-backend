@@ -1,0 +1,32 @@
+config:
+  target: "http://localhost:8080/api/v1"
+  phases:
+    - duration: 45
+      arrivalRate: 3
+  defaults:
+    headers:
+      Content-Type: "application/json"
+
+scenarios:
+  - name: "CRUD Patients"
+    flow:
+      - post:
+          url: "/patients"
+          json:
+            nombre: "Artillery" 
+            apellido: "Test"
+            cedula: "1712345678"
+            fecha_nacimiento: "1990-01-01"
+            genero: "Masculino"
+            ciudad: "Quito"
+            direccion: "Av. Siempre Viva 123"
+            telefono: "0998765432"
+            email: "artillery@test.com"
+      - get:
+          url: "/patients"
+      - put:
+          url: "/patients/replace_with_existing_id"
+          json:
+            nombre: "ArtilleryUpdated"
+      - delete:
+          url: "/patients/replace_with_existing_id"
