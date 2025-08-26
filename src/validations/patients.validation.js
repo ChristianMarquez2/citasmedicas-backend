@@ -9,7 +9,7 @@ export const createPatientSchema = z.object({
   ciudad: z.string().max(20).optional(),
   direccion: z.string().max(20).optional(),
   telefono: z.string().max(20).optional(),
-  email: z.string().max(20).optional(),
+  email: z.string().max(30).optional(),
 });
 
 export const updatePatientSchema = createPatientSchema.partial();

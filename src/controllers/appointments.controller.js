@@ -13,8 +13,16 @@ export const getAppointmentController = async (req, res, next) => {
   } catch (e) { next(e); }
 };
 export const createAppointmentController = async (req, res, next) => {
-  try { res.status(201).json(await createAppointmentSvc(createAppointmentSchema.parse(req.body))); }
-  catch (e) { next(e); }
+  try { 
+    console.log("Body recibido:", req.body); // Para debugging
+    const validatedData = createAppointmentSchema.parse(req.body);
+    const result = await createAppointmentSvc(validatedData);
+    res.status(201).json(result);
+  }
+  catch (e) { 
+    console.error("Error en createAppointmentController:", e);
+    next(e); 
+  }
 };
 export const updateAppointmentController = async (req, res, next) => {
   try { res.json(await updateAppointmentSvc(req.params.id, updateAppointmentSchema.parse(req.body))); }

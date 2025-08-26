@@ -10,7 +10,7 @@ const patientSchema = new mongoose.Schema(
     ciudad: { type: String, trim: true, maxlength: 20 },
     direccion: { type: String, trim: true, maxlength: 20 },
     telefono: { type: String, trim: true, maxlength: 20 },
-    email: { type: String, trim: true, maxlength: 20 },
+    email: { type: String, trim: true, maxlength: 30 },
   },
   { timestamps: true }
 );
