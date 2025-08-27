@@ -9,6 +9,7 @@ import { errorHandler } from "./middleware/errorHandler.js";
 import { requestLogger } from "./middleware/requestLogger.js";
 import { metricsRoute } from "./middleware/metrics.js";
 
+
 const app = express();
 app.use(helmet());
 app.use(compression());

@@ -9,4 +9,5 @@ router.use("/auth", authRoutes);
 router.use("/patients", patientsRoutes);
 router.use("/specialties", specialtiesRoutes);
 router.use("/appointments", appointmentsRoutes);
+
 export default router;
