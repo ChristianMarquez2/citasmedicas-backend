@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: citasmedicas-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: API_PREFIX
+        value: /api/v1
+      - key: APP_NAME
+        value: CitasMedicas-Backend
+      - key: MONGO_URI
+        value: mongodb+srv://chrismarkz3773:3p1URhk1vK4vLQ4C@cluster0.wajk21z.mongodb.net/citasmedicas?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        value: cambia_esto_por_un_secret_largo_unico
+      - key: JWT_EXPIRES
+        value: 60m
+      - key: CORS_ORIGINS
+        value: http://localhost:5173,https://citasmedicas-frontend.vercel.app
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 60000
+      - key: RATE_LIMIT_MAX
+        value: 100
+      - key: METRICS_ENABLED
+        value: true
+      - key: METRICS_PATH
+        value: /metrics
+      - key: HEALTH_PATH
+        value: /health
+      - key: LOG_LEVEL
+        value: info
+      - key: REQUEST_LOG_FORMAT
+        value: combined
